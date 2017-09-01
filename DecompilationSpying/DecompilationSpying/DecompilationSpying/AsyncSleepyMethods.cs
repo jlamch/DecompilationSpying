@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace DecompilationSpying
@@ -13,7 +12,7 @@ namespace DecompilationSpying
         public void Sleepy()
         {
             Task.Delay(1000).Wait();
-            
+
             //Console.WriteLine("base Sleepy");
         }
 
@@ -49,8 +48,9 @@ namespace DecompilationSpying
 
         public async Task<string> CallSleepyComplicatedAwaiting()
         {
-            return await CallSleepyComplicatedAwaitingWithFunc(async () => await CallSleepyComplicated());
-            //return await CallSleepyComplicatedAwaitingWithFunc(() => CallSleepyComplicated());
+            //return await CallSleepyComplicatedAwaitingWithFunc(async () => await CallSleepyComplicated());
+            return await CallSleepyComplicatedAwaitingWithFunc(() => CallSleepyComplicated());
+            //return await CallSleepyComplicatedAwaitingWithFunc(CallSleepyComplicated);
         }
 
     }
